@@ -23,7 +23,6 @@ class UserController extends Controller
     //POST Signup
     public function signup(Request $request){
         $newUser = $request->all();
-
         $user = User::where('email','like','%' . $newUser['email'] . '%')->first();
         if (!is_null($user)){
             return response()->json([
